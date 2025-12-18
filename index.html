@@ -1,0 +1,592 @@
+HTML
+
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EÂ Soluctions | Soluções Digitais e Estratégia</title>
+    <meta name="description" content="Soluções Inteligentes para Negócios que Querem Crescer. Marketing, Design, Gestão e Trading em Angola.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- VARIÁVEIS DE COR --- */
+        :root {
+            --azul-primario: #0B4CCB;
+            --amarelo-destaque: #F4B21B;
+            --cinza-escuro: #4A4F55;
+            --cinza-claro: #F5F7FA;
+            --branco: #FFFFFF;
+        }
+
+        /* --- RESET E GERAL --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--cinza-escuro);
+            background-color: var(--branco);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--azul-primario);
+        }
+
+        a { text-decoration: none; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- BOTÕES --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--azul-primario);
+            color: var(--branco);
+        }
+        .btn-primary:hover {
+            background-color: var(--amarelo-destaque);
+            color: var(--azul-primario);
+        }
+
+        .btn-secondary {
+            background-color: var(--amarelo-destaque);
+            color: var(--azul-primario);
+        }
+        .btn-secondary:hover {
+            background-color: var(--azul-primario);
+            color: var(--branco);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--branco);
+            color: var(--branco);
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: var(--branco);
+            color: var(--azul-primario);
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--azul-primario);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--branco);
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+        .logo span { color: var(--amarelo-destaque); }
+
+        .menu-desktop a {
+            color: var(--branco);
+            margin-left: 20px;
+            font-size: 0.95rem;
+        }
+        .menu-desktop a:hover { color: var(--amarelo-destaque); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(11, 76, 203, 0.9), rgba(11, 76, 203, 0.8)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--branco);
+            padding-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--branco);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* --- SOBRE --- */
+        .section { padding: 80px 0; }
+        .bg-light { background-color: var(--cinza-claro); }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 { font-size: 2.2rem; margin-bottom: 10px; }
+        .section-title p { color: var(--cinza-escuro); max-width: 600px; margin: 0 auto; }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .value-card {
+            background: var(--branco);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border-bottom: 3px solid var(--azul-primario);
+        }
+        .value-card i {
+            font-size: 2rem;
+            color: var(--amarelo-destaque);
+            margin-bottom: 15px;
+        }
+
+        /* --- SERVIÇOS --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--branco);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: var(--azul-primario);
+        }
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--azul-primario);
+            margin-bottom: 20px;
+        }
+        .service-card ul {
+            margin: 20px 0;
+            text-align: left;
+        }
+        .service-card li {
+            margin-bottom: 8px;
+            color: var(--cinza-escuro);
+        }
+        .service-card li i {
+            font-size: 0.8rem;
+            color: var(--amarelo-destaque);
+            margin-right: 10px;
+            margin-bottom: 0;
+        }
+
+        /* --- PREÇOS --- */
+        .pricing-card {
+            background: var(--branco);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+        .pricing-card.featured {
+            border: 2px solid var(--azul-primario);
+            transform: scale(1.05);
+            position: relative;
+        }
+        .pricing-tag {
+            background: var(--amarelo-destaque);
+            color: var(--azul-primario);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .price {
+            font-size: 1.5rem;
+            color: var(--azul-primario);
+            font-weight: 700;
+            margin: 20px 0;
+        }
+
+        /* --- CONTACTO --- */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        @media(max-width: 768px) {
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
+            .pricing-card.featured { transform: scale(1); }
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .contact-info-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--azul-primario);
+            color: var(--branco);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+        }
+
+        form input, form textarea, form select {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+        }
+        form button {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--cinza-escuro);
+            color: var(--branco);
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        .footer-logo { font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; display: block; color: var(--branco); }
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* --- WHATSAPP FLUTUANTE --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: #FFF;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 2000;
+        }
+        .whatsapp-float:hover { background-color: #128C7E; color: #fff; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">EÂ <span>Soluctions</span></a>
+            <nav class="menu-desktop">
+                <a href="#inicio">Início</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#planos">Planos</a>
+                <a href="#contato" class="btn btn-secondary" style="padding: 8px 20px; margin-left: 20px;">Fale Connosco</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h1>EÂ Soluctions – Soluções Digitais, Estratégia e Resultados</h1>
+            <p>Soluções Inteligentes para Negócios que Querem Crescer. Transformamos ideias em soluções digitais eficientes.</p>
+            
+            <div class="hero-btns">
+                <a href="#planos" class="btn btn-secondary">Solicitar Orçamento</a>
+                <a href="https://wa.me/244922797998?text=Olá, quero comprar um serviço da EÂ Soluctions." target="_blank" class="btn btn-outline">Comprar Serviço</a>
+                <a href="https://wa.me/244922797998" target="_blank" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sobre a EÂ Soluctions</h2>
+                <p>Digital & Business Services</p>
+            </div>
+            <div class="about-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p>A EÂ Soluctions posiciona-se como uma empresa moderna, estratégica e orientada a resultados, que integra tecnologia, marketing e gestão para apoiar empreendedores e pequenas empresas no crescimento sustentável em Angola e no mercado lusófono.</p>
+                <br>
+                <p><strong>Sobre Mim (Fundador):</strong> Como fundador, a minha missão é fornecer as ferramentas necessárias para que o seu negócio não só sobreviva, mas prospere no ambiente digital.</p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Missão</h3>
+                    <p>Fornecer soluções digitais e estratégicas que ajudem negócios a crescer e organizar-se.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Visão</h3>
+                    <p>Ser referência em Angola como empresa de soluções digitais integradas.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-gem"></i>
+                    <h3>Valores</h3>
+                    <p>Profissionalismo, Inovação, Compromisso, Transparência e Excelência.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Os Nossos Serviços</h2>
+                <p>Estratégias personalizadas para a sua necessidade.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Marketing Digital</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Gestão de Redes Sociais</li>
+                        <li><i class="fas fa-check"></i> Criação de Anúncios (Ads)</li>
+                        <li><i class="fas fa-check"></i> Copywriting Estratégico</li>
+                    </ul>
+                    <a href="https://wa.me/244922797998?text=Olá, gostaria de saber mais sobre Marketing Digital." class="btn btn-primary" style="width: 100%">Saber Mais</a>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Design Gráfico</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Logotipos Profissionais</li>
+                        <li><i class="fas fa-check"></i> Flyers e Banners</li>
+                        <li><i class="fas fa-check"></i> Identidade Visual Completa</li>
+                    </ul>
+                    <a href="https://wa.me/244922797998?text=Olá, preciso de serviços de Design Gráfico." class="btn btn-primary" style="width: 100%">Solicitar Design</a>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Gestão de Empresas</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Consultoria de Processos</li>
+                        <li><i class="fas fa-check"></i> Organização Empresarial</li>
+                        <li><i class="fas fa-check"></i> Treinamentos de Equipe</li>
+                    </ul>
+                    <a href="https://wa.me/244922797998?text=Olá, tenho interesse na Consultoria de Gestão." class="btn btn-primary" style="width: 100%">Consultar</a>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Trading Educacional</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Mentorias Individuais</li>
+                        <li><i class="fas fa-check"></i> Formação Básica e Avançada</li>
+                        <li><i class="fas fa-check"></i> Análise de Mercado</li>
+                    </ul>
+                    <a href="https://wa.me/244922797998?text=Olá, quero saber sobre as mentorias de Trading." class="btn btn-primary" style="width: 100%">Começar Agora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="planos" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Investimento</h2>
+                <p>Escolha o plano ideal ou solicite um personalizado.</p>
+            </div>
+            
+            <div class="services-grid"> <div class="pricing-card">
+                    <h3>Serviço Avulso</h3>
+                    <p>Para necessidades pontuais</p>
+                    <div class="price">Sob Consulta</div>
+                    <ul style="text-align: left; margin-bottom: 20px;">
+                        <li>Design de Flyers</li>
+                        <li>Configuração de conta</li>
+                        <li>Consultoria rápida</li>
+                    </ul>
+                    <a href="https://wa.me/244922797998?text=Quero um orçamento para um serviço avulso." class="btn btn-outline" style="color: var(--azul-primario); border-color: var(--azul-primario);">Pedir Orçamento</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <span class="pricing-tag">Mais Popular</span>
+                    <h3>Pacote Mensal</h3>
+                    <p>Gestão contínua</p>
+                    <div class="price">Sob Consulta</div>
+                    <ul style="text-align: left; margin-bottom: 20px;">
+                        <li>Gestão de Redes Sociais</li>
+                        <li>Relatórios Mensais</li>
+                        <li>Suporte Prioritário</li>
+                    </ul>
+                    <a href="https://wa.me/244922797998?text=Tenho interesse nos pacotes mensais." class="btn btn-primary">Contratar Agora</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Produtos Digitais</h3>
+                    <p>Cursos e Mentorias</p>
+                    <div class="price">Kz Variável</div>
+                    <ul style="text-align: left; margin-bottom: 20px;">
+                        <li>Acesso a aulas gravadas</li>
+                        <li>Material de apoio (PDF)</li>
+                        <li>Certificado EÂ Soluctions</li>
+                    </ul>
+                    <a href="https://wa.me/244922797998?text=Quero comprar um curso ou mentoria." class="btn btn-outline" style="color: var(--azul-primario); border-color: var(--azul-primario);">Ver Catálogo</a>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; background: #eef2f7; padding: 20px; border-radius: 8px; font-size: 0.9rem;">
+                <p><strong>⚠️ Nota sobre Pagamentos:</strong> Aceitamos Transferência Bancária (IBAN) ou Depósito Express. Após clicar em "Contratar", receberá os dados bancários. O serviço inicia após envio do comprovativo para <em>enocangelo126@gmail.com</em> ou WhatsApp.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fale Connosco</h2>
+                <p>Estamos prontos para alavancar o seu negócio.</p>
+            </div>
+
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Localização</h4>
+                            <p>Benguela, Angola</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefone / WhatsApp</h4>
+                            <p>+244 922 797 998</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>enocangelo126@gmail.com</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 30px;">
+                        <p>Horário de Atendimento:<br>Segunda a Sexta: 08h - 17h</p>
+                    </div>
+                </div>
+
+                <form action="mailto:enocangelo126@gmail.com" method="post" enctype="text/plain">
+                    <input type="text" name="nome" placeholder="Seu Nome" required>
+                    <input type="email" name="email" placeholder="Seu Email" required>
+                    <input type="tel" name="telefone" placeholder="Seu Telefone" required>
+                    <select name="servico">
+                        <option value="">Selecione o Serviço</option>
+                        <option value="Marketing">Marketing Digital</option>
+                        <option value="Design">Design Gráfico</option>
+                        <option value="Gestao">Gestão de Empresas</option>
+                        <option value="Trading">Trading / Mentoria</option>
+                    </select>
+                    <textarea name="mensagem" rows="5" placeholder="Como podemos ajudar?" required></textarea>
+                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <a href="#" class="footer-logo">EÂ Soluctions</a>
+            <p>Soluções Inteligentes para Negócios que Querem Crescer</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 EÂ Soluctions. Todos os direitos reservados.</p>
+                <p>Benguela, Angola</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/244922797998" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
